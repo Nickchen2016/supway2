@@ -1,34 +1,28 @@
+  
 <template>
-  <view class="container">
-    <!-- <text class="text-color-primary">{{message}}</text> -->
-    <button v-bind:title="message" v-bind:on-press="handlebaraction"/>
-  </view>
+  <app-navigator></app-navigator>
 </template>
+
 <script>
-export default {
-  data: function() {
-    return {
-      message: "Hello World"
-    };
+import {
+  createAppContainer,
+  createStackNavigator
+} from "vue-native-router";
+import SelectScreen from "./client/SelectScreen.vue";
+import DetailsScreen from "./client/DetailsScreen.vue";
+const StackNavigator = createStackNavigator(
+  {
+    Home: SelectScreen,
+    Details: DetailsScreen
   },
-  methods: {
-    handlebaraction: function(){
-      alert('Here!');
-    }
+  {
+    initialRouteName: 'Home'
   }
-};
+);
+const AppNavigator = createAppContainer(StackNavigator);
+export default {
+  components: { AppNavigator }
+}
 </script>
-<style>
-.container {
-  flex: 1;
-  background-color: white;
-  align-items: center;
-  justify-content: center;
-}
-.text-color-primary {
-  color: blue;
-  font-size: 30;
-}
-</style>
 
 
