@@ -103,12 +103,12 @@ export default {
         })
         Animated.parallel([
           Animated.timing(this.growths[0].val,{
-            toValue: Math.floor(timeList[0]/timeList[2]*380),
+            toValue: Math.floor(timeList[0]/timeList[2]*380)===0?5:Math.floor(timeList[0]/timeList[2]*380),
             duration: 350,
             easing: Easing.linear
           }),
           Animated.timing(this.growths[1].val,{
-            toValue: Math.floor(timeList[1]/timeList[2]*380),
+            toValue: Math.floor(timeList[1]/timeList[2]*380)===0?5:Math.floor(timeList[1]/timeList[2]*380),
             duration: 350,
             easing: Easing.linear
           }),
